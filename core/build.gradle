@@ -1,0 +1,16 @@
+version 'unspecified'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.yaml/snakeyaml
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.19'
+    compile group: 'org.zeroturnaround', name: 'zt-zip', version: '1.12'
+    compile group: 'com.googlecode.plist', name: 'dd-plist', version: '1.3'
+}

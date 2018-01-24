@@ -1,0 +1,28 @@
+<config>
+    <executableName>${app.executable}</executableName>
+    <mainClass>${app.mainclass}</mainClass>
+    <os>ios</os>    
+    <target>ios</target>
+    <iosInfoPList>Info.plist.xml</iosInfoPList>
+    <resources>
+        <resource>
+            <directory>resources</directory>
+        </resource>
+    </resources>
+    <forceLinkClasses>
+        <pattern>org.apache.harmony.security.provider.cert.*</pattern>
+        <pattern>org.apache.harmony.security.provider.crypto.*</pattern>
+        <pattern>com.android.org.bouncycastle.jce.provider.*</pattern>
+        <pattern>com.android.okhttp.HttpHandler</pattern>
+        <pattern>com.android.okhttp.HttpsHandler</pattern>
+        <pattern>com.android.org.conscrypt.*</pattern>
+        <!-- We still need KeyStore.BKS and CertPathValidator.PKIX from BouncyCastle -->
+        <pattern>com.android.org.bouncycastle.jce.provider.BouncyCastleProvider</pattern>
+        <pattern>com.android.org.bouncycastle.jcajce.provider.keystore.BC$Mappings</pattern>
+        <pattern>com.android.org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi</pattern>
+        <pattern>com.android.org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi$Std</pattern>
+
+        <pattern>java.util.logging.ConsoleHandler</pattern>
+        <pattern>java.util.logging.SimpleFormatter</pattern>
+    </forceLinkClasses>
+</config>

@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    }
+    dependencies {
+        classpath 'com.mobidevelop.robovm:robovm-gradle-plugin:2.3.4-SNAPSHOT'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'robovm'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+ext {
+    roboVMVersion = "2.3.4-SNAPSHOT"
+}
+
+robovm {
+}
+
+dependencies {
+    compile "com.mobidevelop.robovm:robovm-rt:${roboVMVersion}"
+    compile "com.mobidevelop.robovm:robovm-cocoatouch:${roboVMVersion}"
+    compile project(':core')
+
+    compile group: 'org.nanohttpd', name: 'nanohttpd-webserver', version: '2.3.1'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.10'
+}
